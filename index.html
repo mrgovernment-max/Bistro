@@ -35,6 +35,7 @@
         background-color: #fcf9f6;
         color: #1e1e1e;
         line-height: 1.6;
+        overflow-x: hidden;
       }
 
       .container {
@@ -513,6 +514,7 @@
           box-shadow 0.4s ease;
         border: 1px solid #f0ebe6;
         animation: scaleIn 0.6s ease-out both;
+        cursor: pointer;
       }
       .dish-card:nth-child(1) {
         animation-delay: 0.1s;
@@ -652,6 +654,7 @@
           box-shadow 0.3s ease, border-color 0.3s ease;
         border: 1px solid #f0ebe6;
         animation: fadeInUp 0.5s ease-out both;
+        cursor: pointer;
       }
       .menu-item-card:nth-child(1) {
         animation-delay: 0.05s;
@@ -807,6 +810,224 @@
         color: #fff;
       }
 
+      /* ===== IMAGE ENLARGE OVERLAY ===== */
+      .image-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.92);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        animation: fadeInOverlay 0.3s ease;
+      }
+
+      .image-overlay.active {
+        display: flex;
+      }
+
+      @keyframes fadeInOverlay {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .image-overlay .overlay-content {
+        position: relative;
+        max-width: 700px;
+        width: 100%;
+        max-height: 90vh;
+        background: #fff;
+        border-radius: 24px;
+        overflow: hidden;
+        animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+      }
+
+      .image-overlay .overlay-content img {
+        width: 100%;
+        height: auto;
+        max-height: 70vh;
+        object-fit: contain;
+        display: block;
+        background: #f8f4f0;
+      }
+
+      .image-overlay .overlay-content .overlay-info {
+        padding: 20px 28px;
+        background: #fff;
+      }
+
+      .image-overlay .overlay-content .overlay-info h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        color: #1e1e1e;
+        margin-bottom: 4px;
+      }
+
+      .image-overlay .overlay-content .overlay-info p {
+        color: #555;
+        font-size: 1rem;
+      }
+
+      .image-overlay .overlay-content .overlay-info .overlay-price {
+        font-weight: 700;
+        color: #c62828;
+        font-size: 1.2rem;
+        margin-top: 6px;
+      }
+
+      .image-overlay .close-btn {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        font-size: 1.6rem;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(4px);
+        z-index: 10;
+      }
+
+      .image-overlay .close-btn:hover {
+        background: #c62828;
+        transform: rotate(90deg) scale(1.1);
+      }
+
+      /* ===== CONTACT FORM ===== */
+      .contact-section {
+        background: #1e1e1e;
+        color: #fff;
+        padding: 80px 0;
+      }
+
+      .contact-section .section-subtitle {
+        color: #f9a825;
+      }
+
+      .contact-section h2 {
+        color: #fff;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+        margin-top: 20px;
+      }
+
+      .contact-info-box h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        color: #f9a825;
+        margin-bottom: 1rem;
+      }
+
+      .contact-info-box p {
+        color: #ccc;
+        margin-bottom: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .contact-info-box p i {
+        color: #f9a825;
+        font-size: 1.2rem;
+        width: 28px;
+      }
+
+      .contact-form {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 30px 32px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(4px);
+      }
+
+      .contact-form h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.4rem;
+        color: #f9a825;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-form .form-group {
+        margin-bottom: 18px;
+      }
+
+      .contact-form label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #ccc;
+        margin-bottom: 4px;
+      }
+
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form select {
+        width: 100%;
+        padding: 12px 16px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.06);
+        color: #fff;
+        font-size: 1rem;
+        transition: border-color 0.3s, box-shadow 0.3s;
+        font-family: "Inter", sans-serif;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus,
+      .contact-form select:focus {
+        outline: none;
+        border-color: #f9a825;
+        box-shadow: 0 0 0 3px rgba(249, 168, 37, 0.15);
+      }
+
+      .contact-form input::placeholder,
+      .contact-form textarea::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      .contact-form textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .contact-form select option {
+        color: #1e1e1e;
+      }
+
+      .contact-form .btn-primary {
+        background: #f9a825;
+        color: #1e1e1e !important;
+        width: 100%;
+        padding: 14px;
+        font-size: 1.1rem;
+      }
+
+      .contact-form .btn-primary:hover {
+        background: #e69500;
+      }
+
       /* ===== LOCATION & HOURS ===== */
       .info-grid {
         display: grid;
@@ -901,6 +1122,7 @@
         padding: 40px 0;
         text-align: center;
         animation: fadeInUp 0.8s ease-out;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
       }
       footer .socials {
         display: flex;
@@ -961,6 +1183,10 @@
           aspect-ratio: 4 / 3;
           max-height: 400px;
         }
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
       }
 
       @media (max-width: 600px) {
@@ -1010,6 +1236,18 @@
         .slideshow-container {
           aspect-ratio: 3 / 4;
           max-height: 350px;
+        }
+        .image-overlay {
+          padding: 16px;
+        }
+        .image-overlay .overlay-content .overlay-info {
+          padding: 16px 20px;
+        }
+        .image-overlay .overlay-content .overlay-info h3 {
+          font-size: 1.3rem;
+        }
+        .contact-form {
+          padding: 20px 16px;
         }
       }
     </style>
@@ -1074,7 +1312,13 @@
           <h2>Our Most Loved Flavors</h2>
         </div>
         <div class="dishes-grid">
-          <div class="dish-card">
+          <div
+            class="dish-card"
+            data-img="https://static.wixstatic.com/media/555adc_050c109792ab4f788899d4b9f1ec4c0c~mv2.png/v1/fill/w_431,h_431,al_c,lg_1,q_85,enc_auto/555adc_050c109792ab4f788899d4b9f1ec4c0c~mv2.png"
+            data-name="Fufu & Soup"
+            data-desc="Pounded cassava and plantain dough served with your choice of rich, aromatic soup."
+            data-price="£10 - £15"
+          >
             <img
               src="https://static.wixstatic.com/media/555adc_050c109792ab4f788899d4b9f1ec4c0c~mv2.png/v1/fill/w_431,h_431,al_c,lg_1,q_85,enc_auto/555adc_050c109792ab4f788899d4b9f1ec4c0c~mv2.png"
               alt="Fufu and Soup"
@@ -1087,7 +1331,13 @@
               </p>
             </div>
           </div>
-          <div class="dish-card">
+          <div
+            class="dish-card"
+            data-img="https://static.wixstatic.com/media/555adc_4b7b7fb0f8e64bd5be604ff4002cf541~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_4b7b7fb0f8e64bd5be604ff4002cf541~mv2.jpg"
+            data-name="Jollof Rice"
+            data-desc="The iconic West African one-pot rice dish, simmered in tomatoes, peppers, and spices."
+            data-price="£6 - £12"
+          >
             <img
               src="https://static.wixstatic.com/media/555adc_4b7b7fb0f8e64bd5be604ff4002cf541~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_4b7b7fb0f8e64bd5be604ff4002cf541~mv2.jpg"
               alt="Jollof Rice"
@@ -1100,7 +1350,13 @@
               </p>
             </div>
           </div>
-          <div class="dish-card">
+          <div
+            class="dish-card"
+            data-img="https://static.wixstatic.com/media/555adc_c8ba4204a92d4e31b08f3d50a7a57ae3~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_c8ba4204a92d4e31b08f3d50a7a57ae3~mv2.jpg"
+            data-name="Grilled Tilapia"
+            data-desc="Fresh tilapia marinated in herbs and grilled to perfection, served with plantain."
+            data-price="£8 - £15"
+          >
             <img
               src="https://static.wixstatic.com/media/555adc_c8ba4204a92d4e31b08f3d50a7a57ae3~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_c8ba4204a92d4e31b08f3d50a7a57ae3~mv2.jpg"
               alt="Grilled Tilapia"
@@ -1135,7 +1391,13 @@
               Sunday Specials
             </h3>
             <div class="menu-grid">
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_69cfe523a3684448b3f16d0e7535da31~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_69cfe523a3684448b3f16d0e7535da31~mv2.jpg"
+                data-name="Tuo Zaafi with Soup"
+                data-desc="Sunday Only"
+                data-price=" £10 - £15"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_69cfe523a3684448b3f16d0e7535da31~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_69cfe523a3684448b3f16d0e7535da31~mv2.jpg"
                   alt="Tuo Zaafi with Soup"
@@ -1161,7 +1423,13 @@
                   </div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_824dc121528b45c397fa773ba514d4ea~mv2.webp/v1/fill/w_431,h_431,al_c,lg_1,q_80,enc_auto/555adc_824dc121528b45c397fa773ba514d4ea~mv2.webp"
+                data-name="Rice Balls with Peanut Soup"
+                data-desc="Sundays Only"
+                data-price="£10 - £15"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_824dc121528b45c397fa773ba514d4ea~mv2.webp/v1/fill/w_431,h_431,al_c,lg_1,q_80,enc_auto/555adc_824dc121528b45c397fa773ba514d4ea~mv2.webp"
                   alt="Rice Balls with Peanut Soup"
@@ -1189,7 +1457,13 @@
                   </div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_9b07f19259c44ce59121b2c0d86121fa~mv2.png/v1/fill/w_431,h_431,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/555adc_9b07f19259c44ce59121b2c0d86121fa~mv2.png"
+                data-name="Banku with Peanut soup"
+                data-desc="Sundays Only"
+                data-price="£10 - £15"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_9b07f19259c44ce59121b2c0d86121fa~mv2.png/v1/fill/w_431,h_431,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/555adc_9b07f19259c44ce59121b2c0d86121fa~mv2.png"
                   alt="Banku with Peanut soup"
@@ -1227,7 +1501,13 @@
               Main Meals
             </h3>
             <div class="menu-grid">
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_08537ee504624db784fa5f01dc19adde~mv2.png/v1/fill/w_431,h_431,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/555adc_08537ee504624db784fa5f01dc19adde~mv2.png"
+                data-name="Banku with Okro Soup"
+                data-desc="Monday to Friday"
+                data-price="£10 - £15"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_08537ee504624db784fa5f01dc19adde~mv2.png/v1/fill/w_431,h_431,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/555adc_08537ee504624db784fa5f01dc19adde~mv2.png"
                   alt="Banku with Okro Soup"
@@ -1250,7 +1530,13 @@
                   <div class="tags"><span class="tag mild">Mild</span></div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_050c109792ab4f788899d4b9f1ec4c0c~mv2.png/v1/fill/w_431,h_431,al_c,lg_1,q_85,enc_auto/555adc_050c109792ab4f788899d4b9f1ec4c0c~mv2.png"
+                data-name="Fufu with Soup of the Day"
+                data-desc="Freshly prepared daily"
+                data-price="£10 - £15"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_050c109792ab4f788899d4b9f1ec4c0c~mv2.png/v1/fill/w_431,h_431,al_c,lg_1,q_85,enc_auto/555adc_050c109792ab4f788899d4b9f1ec4c0c~mv2.png"
                   alt="Fufu with Soup of the Day"
@@ -1271,7 +1557,13 @@
                   <div class="tags"><span class="tag mild">Mild</span></div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_0f156cbde74c4ba7a341986aac2d9968~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_0f156cbde74c4ba7a341986aac2d9968~mv2.jpg"
+                data-name="Kenkey with Fried Fish/Chofi"
+                data-desc="Pair with spicy fish"
+                data-price="£10 - £15"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_0f156cbde74c4ba7a341986aac2d9968~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_0f156cbde74c4ba7a341986aac2d9968~mv2.jpg"
                   alt="Kenkey with Fried Fish/Chofi"
@@ -1292,7 +1584,13 @@
                   <div class="tags"><span class="tag hot">Extra Hot</span></div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_48366f4723094f47b9dd222b6a98515c~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_48366f4723094f47b9dd222b6a98515c~mv2.jpg"
+                data-name="Banku with Fried Fish/Chofi"
+                data-desc="Spicy fish paired with Banku"
+                data-price="£10 - £15"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_48366f4723094f47b9dd222b6a98515c~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_48366f4723094f47b9dd222b6a98515c~mv2.jpg"
                   alt="Banku with Fried Fish/Chofi"
@@ -1326,7 +1624,13 @@
               Rice & Stews
             </h3>
             <div class="menu-grid">
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_c4ba3523ea3b4f3a923057df98a0f492~mv2.jpeg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_c4ba3523ea3b4f3a923057df98a0f492~mv2.jpeg"
+                data-name="Waakye"
+                data-desc="Rice & Beans with Sauce"
+                data-price="£6 - £12"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_c4ba3523ea3b4f3a923057df98a0f492~mv2.jpeg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_c4ba3523ea3b4f3a923057df98a0f492~mv2.jpeg"
                   alt="Waakye"
@@ -1346,7 +1650,13 @@
                   </div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_4b7b7fb0f8e64bd5be604ff4002cf541~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_4b7b7fb0f8e64bd5be604ff4002cf541~mv2.jpg"
+                data-name="Jollof Rice"
+                data-desc="With Chicken/Turkey"
+                data-price="£6 - £12"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_4b7b7fb0f8e64bd5be604ff4002cf541~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_4b7b7fb0f8e64bd5be604ff4002cf541~mv2.jpg"
                   alt="Jollof Rice"
@@ -1366,7 +1676,13 @@
                   </div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_6c7d70a8b18a440d8919234f063b3cbc~mv2.png/v1/fill/w_431,h_431,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/555adc_6c7d70a8b18a440d8919234f063b3cbc~mv2.png"
+                data-name="White Rice"
+                data-desc="With stew or soup"
+                data-price="£6 - £12"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_6c7d70a8b18a440d8919234f063b3cbc~mv2.png/v1/fill/w_431,h_431,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/555adc_6c7d70a8b18a440d8919234f063b3cbc~mv2.png"
                   alt="White Rice"
@@ -1389,7 +1705,13 @@
                   </div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_03d2e9dd60a64b52b8fdd41cb2002db2~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_03d2e9dd60a64b52b8fdd41cb2002db2~mv2.jpg"
+                data-name="Fried Rice"
+                data-desc="With Chicken/Turkey"
+                data-price="£6 - £12"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_03d2e9dd60a64b52b8fdd41cb2002db2~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_03d2e9dd60a64b52b8fdd41cb2002db2~mv2.jpg"
                   alt="Fried Rice"
@@ -1409,7 +1731,13 @@
                   </div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_a060fca99dc643e5b83b5306d6e381b3~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_a060fca99dc643e5b83b5306d6e381b3~mv2.jpg"
+                data-name="Fried Plantain"
+                data-desc="With Beans Sauce"
+                data-price="£10 - £15"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_a060fca99dc643e5b83b5306d6e381b3~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_a060fca99dc643e5b83b5306d6e381b3~mv2.jpg"
                   alt="Fried Plantain with Beans Sauce"
@@ -1446,7 +1774,13 @@
               Extras
             </h3>
             <div class="menu-grid">
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_48aa7c737e0e47bfafda7f2f284ff1bb~mv2.jpeg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_48aa7c737e0e47bfafda7f2f284ff1bb~mv2.jpeg"
+                data-name="Fufu"
+                data-desc="Classic Ghanaian staple"
+                data-price="£6 - £10"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_48aa7c737e0e47bfafda7f2f284ff1bb~mv2.jpeg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_48aa7c737e0e47bfafda7f2f284ff1bb~mv2.jpeg"
                   alt="Fufu"
@@ -1471,7 +1805,13 @@
                   </div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/6b11df_6c882ef031dd4b08961a97a5c8d1708d~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/6b11df_6c882ef031dd4b08961a97a5c8d1708d~mv2.jpg"
+                data-name="Banku"
+                data-desc="Fermented corn dough"
+                data-price="£3 - £4"
+              >
                 <img
                   src="https://static.wixstatic.com/media/6b11df_6c882ef031dd4b08961a97a5c8d1708d~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/6b11df_6c882ef031dd4b08961a97a5c8d1708d~mv2.jpg"
                   alt="Banku"
@@ -1493,7 +1833,13 @@
                   </div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_8d30ea3d5d574e9e9a40e3ceb5b993ab~mv2.jpeg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_8d30ea3d5d574e9e9a40e3ceb5b993ab~mv2.jpeg"
+                data-name="Kenkey"
+                data-desc="Pair"
+                data-price="£3"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_8d30ea3d5d574e9e9a40e3ceb5b993ab~mv2.jpeg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_8d30ea3d5d574e9e9a40e3ceb5b993ab~mv2.jpeg"
                   alt="Kenkey"
@@ -1510,7 +1856,13 @@
                   </div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/9eef13_1bed43159f7f44a6876a4c30e08c5c3d~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/9eef13_1bed43159f7f44a6876a4c30e08c5c3d~mv2.jpg"
+                data-name="Okra Stew"
+                data-desc="A healthy mix of vegetables and proteins cooked in spices"
+                data-price="£6 - £10"
+              >
                 <img
                   src="https://static.wixstatic.com/media/9eef13_1bed43159f7f44a6876a4c30e08c5c3d~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/9eef13_1bed43159f7f44a6876a4c30e08c5c3d~mv2.jpg"
                   alt="Okra stew"
@@ -1540,7 +1892,13 @@
                   </div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_caab09fed7674057ab4a862ef46a7149~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_caab09fed7674057ab4a862ef46a7149~mv2.jpg"
+                data-name="Soup of the Day"
+                data-desc="Freshly made daily"
+                data-price="£5 - £15"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_caab09fed7674057ab4a862ef46a7149~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_caab09fed7674057ab4a862ef46a7149~mv2.jpg"
                   alt="Soup of the day"
@@ -1564,7 +1922,13 @@
                   <div class="tags"><span class="tag mild">Mild</span></div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_c8ba4204a92d4e31b08f3d50a7a57ae3~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_c8ba4204a92d4e31b08f3d50a7a57ae3~mv2.jpg"
+                data-name="Chofi"
+                data-desc="Spicy fried meat"
+                data-price="£5 - £15"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_c8ba4204a92d4e31b08f3d50a7a57ae3~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_c8ba4204a92d4e31b08f3d50a7a57ae3~mv2.jpg"
                   alt="Chofi"
@@ -1600,7 +1964,13 @@
               Meat & Fish
             </h3>
             <div class="menu-grid">
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_26adbff099c541c491d2a0f9d8bc3f44~mv2.png/v1/fill/w_426,h_426,al_c,lg_1,q_85,enc_auto/555adc_26adbff099c541c491d2a0f9d8bc3f44~mv2.png"
+                data-name="Turkey (Chofi)"
+                data-desc="Spicy fried turkey"
+                data-price="£5 - £15"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_26adbff099c541c491d2a0f9d8bc3f44~mv2.png/v1/fill/w_426,h_426,al_c,lg_1,q_85,enc_auto/555adc_26adbff099c541c491d2a0f9d8bc3f44~mv2.png"
                   alt="Turkey"
@@ -1623,7 +1993,13 @@
                   </div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_1f264a9e4b464116b8e70017c6dbbde7~mv2.png/v1/fill/w_431,h_431,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/555adc_1f264a9e4b464116b8e70017c6dbbde7~mv2.png"
+                data-name="Fried Tilapia"
+                data-desc="Crispy fried tilapia"
+                data-price="£8 - £15"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_1f264a9e4b464116b8e70017c6dbbde7~mv2.png/v1/fill/w_431,h_431,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/555adc_1f264a9e4b464116b8e70017c6dbbde7~mv2.png"
                   alt="Fried Tilapia"
@@ -1640,7 +2016,13 @@
                   </div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_8bb37d9f135d4b17ad6e632def429068~mv2.jpg/v1/fill/w_1181,h_367,al_c,q_85,enc_auto/555adc_8bb37d9f135d4b17ad6e632def429068~mv2.jpg"
+                data-name="Fried Red Bream"
+                data-desc="Crispy fried red bream"
+                data-price="£8 - £15"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_8bb37d9f135d4b17ad6e632def429068~mv2.jpg/v1/fill/w_1181,h_367,al_c,q_85,enc_auto/555adc_8bb37d9f135d4b17ad6e632def429068~mv2.jpg"
                   alt="Fried Red Bream"
@@ -1657,7 +2039,13 @@
                   </div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_6f1700d6d52341abaa434576175ca843~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_6f1700d6d52341abaa434576175ca843~mv2.jpg"
+                data-name="Fried Snapper"
+                data-desc="Crispy fried snapper"
+                data-price="£8 - £15"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_6f1700d6d52341abaa434576175ca843~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_6f1700d6d52341abaa434576175ca843~mv2.jpg"
                   alt="Fried Snapper"
@@ -1687,7 +2075,13 @@
               Drinks
             </h3>
             <div class="menu-grid">
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_8bb37d9f135d4b17ad6e632def429068~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_8bb37d9f135d4b17ad6e632def429068~mv2.jpg"
+                data-name="Big Can Drinks"
+                data-desc="A variety of drinks"
+                data-price="£2"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_8bb37d9f135d4b17ad6e632def429068~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_8bb37d9f135d4b17ad6e632def429068~mv2.jpg"
                   alt="Big Can Drinks"
@@ -1701,7 +2095,13 @@
                   </div>
                 </div>
               </div>
-              <div class="menu-item-card">
+              <div
+                class="menu-item-card"
+                data-img="https://static.wixstatic.com/media/555adc_8bb37d9f135d4b17ad6e632def429068~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_8bb37d9f135d4b17ad6e632def429068~mv2.jpg"
+                data-name="Bottled Drinks"
+                data-desc="A variety of bottled drinks"
+                data-price="£2"
+              >
                 <img
                   src="https://static.wixstatic.com/media/555adc_8bb37d9f135d4b17ad6e632def429068~mv2.jpg/v1/fill/w_431,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/555adc_8bb37d9f135d4b17ad6e632def429068~mv2.jpg"
                   alt="Bottled Drinks"
@@ -1864,13 +2264,130 @@
       </div>
     </section>
 
+    <!-- ===== CONTACT FORM SECTION ===== -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-title-center">
+          <p class="section-subtitle">Get in Touch</p>
+          <h2>Contact Us</h2>
+          <p style="color: #ccc; margin-top: 0.5rem">
+            Have a question or want to place a catering order? Reach out to us!
+          </p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info-box">
+            <h3>Visit or Call Us</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 487 Oxford Road, Reading,
+              RG30 1HF
+            </p>
+            <p><i class="fas fa-phone"></i> 07932 610128</p>
+            <p><i class="fas fa-phone-alt"></i> 0118 375 4116</p>
+            <p><i class="fas fa-envelope"></i> bettysbistro487@gmail.com</p>
+            <p><i class="fas fa-clock"></i> Sun–Fri: 13:30 – 21:00</p>
+            <div
+              style="
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+              "
+            >
+              <p
+                style="
+                  color: #f9a825;
+                  font-family: 'Playfair Display', serif;
+                  font-size: 1.2rem;
+                "
+              >
+                "Akwaaba" — Welcome!
+              </p>
+            </div>
+          </div>
+          <div class="contact-form">
+            <h3>Send Us a Message</h3>
+            <form id="contactForm" action="#" method="POST">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject">
+                  <option value="general">General Inquiry</option>
+                  <option value="catering">Catering Order</option>
+                  <option value="reservation">Reservation</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Write your message here..."
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-primary">
+                <i class="fas fa-paper-plane" style="margin-right: 10px"></i>
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== IMAGE ENLARGE OVERLAY ===== -->
+    <div class="image-overlay" id="imageOverlay">
+      <div class="overlay-content">
+        <button class="close-btn" id="closeOverlay">&times;</button>
+        <img id="overlayImg" src="" alt="Enlarged dish" />
+        <div class="overlay-info">
+          <h3 id="overlayName">Dish Name</h3>
+          <p id="overlayDesc">Description</p>
+          <div class="overlay-price" id="overlayPrice">Price</div>
+        </div>
+      </div>
+    </div>
+
     <!-- ===== CONTACT CTA ===== -->
     <section
-      id="contact"
-      style="background: #1e1e1e; color: #fff; padding: 60px 0"
+      style="
+        background: #1e1e1e;
+        color: #fff;
+        padding: 60px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      "
     >
       <div class="container" style="text-align: center">
-        <p class="section-subtitle" style="color: #f9a825">Get in Touch</p>
+        <p class="section-subtitle" style="color: #f9a825">Quick Order</p>
         <h2 style="font-size: 2.5rem">Hungry? Order Now</h2>
         <p style="max-width: 500px; margin: 1.2rem auto; opacity: 0.8">
           Call us to place your order or ask about catering for your event.
@@ -1976,6 +2493,110 @@
 
         showSlide(0);
         startSlideshow();
+      });
+    </script>
+
+    <!-- ===== IMAGE ENLARGE SCRIPT ===== -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const overlay = document.getElementById("imageOverlay");
+        const overlayImg = document.getElementById("overlayImg");
+        const overlayName = document.getElementById("overlayName");
+        const overlayDesc = document.getElementById("overlayDesc");
+        const overlayPrice = document.getElementById("overlayPrice");
+        const closeBtn = document.getElementById("closeOverlay");
+
+        // Function to open overlay
+        function openOverlay(imgSrc, name, desc, price) {
+          overlayImg.src = imgSrc;
+          overlayName.textContent = name;
+          overlayDesc.textContent = desc;
+          overlayPrice.textContent = price || "£ —";
+          overlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
+
+        // Function to close overlay
+        function closeOverlay() {
+          overlay.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+
+        // Close button
+        closeBtn.addEventListener("click", closeOverlay);
+
+        // Click outside image to close
+        overlay.addEventListener("click", function (e) {
+          if (e.target === overlay) {
+            closeOverlay();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") {
+            closeOverlay();
+          }
+        });
+
+        // ===== SIGNATURE DISHES =====
+        document.querySelectorAll(".dish-card").forEach(function (card) {
+          card.addEventListener("click", function () {
+            const img = this.dataset.img;
+            const name = this.dataset.name;
+            const desc = this.dataset.desc;
+            const price = this.dataset.price;
+            if (img) {
+              openOverlay(img, name, desc, price);
+            }
+          });
+        });
+
+        // ===== MENU ITEMS =====
+        document.querySelectorAll(".menu-item-card").forEach(function (item) {
+          item.addEventListener("click", function () {
+            const img = this.dataset.img;
+            const name = this.dataset.name;
+            const desc = this.dataset.desc;
+            const price = this.dataset.price;
+            if (img) {
+              openOverlay(img, name, desc, price);
+            }
+          });
+        });
+      });
+    </script>
+
+    <!-- ===== CONTACT FORM SCRIPT ===== -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contactForm");
+        if (form) {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const subject = document.getElementById("subject").value;
+            const message = document.getElementById("message").value;
+
+            // Simple validation
+            if (!name || !email || !message) {
+              alert("Please fill in all required fields.");
+              return;
+            }
+
+            // Show success message (you can replace this with actual form submission)
+            alert(
+              "Thank you for your message, " +
+                name +
+                "! We'll get back to you soon. 🧡"
+            );
+            form.reset();
+          });
+        }
       });
     </script>
   </body>
