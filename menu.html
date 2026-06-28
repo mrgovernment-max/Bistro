@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Betty's Bistro Menu</title>
+    <style>
+      body {
+        font-family: "Times New Roman", serif;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+      h1 {
+        color: #c62828;
+        text-align: center;
+        font-size: 28px;
+      }
+      .subtitle {
+        text-align: center;
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 30px;
+      }
+      h2 {
+        color: #c62828;
+        border-bottom: 2px solid #c62828;
+        padding-bottom: 8px;
+        margin-top: 30px;
+      }
+      .item {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 0;
+        border-bottom: 1px dashed #ddd;
+      }
+      .item .name {
+        font-weight: 600;
+      }
+      .item .prices {
+        color: #c62828;
+        font-weight: 600;
+      }
+      .tags {
+        font-size: 11px;
+        color: #777;
+        margin-top: 2px;
+      }
+      .tag {
+        display: inline-block;
+        background: #f0f0f0;
+        padding: 1px 10px;
+        border-radius: 12px;
+        margin-right: 4px;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 2px solid #ccc;
+        font-style: italic;
+      }
+      .divider {
+        border-top: 2px solid #c62828;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🍲 Betty's Bistro</h1>
+    <p class="subtitle">487 Oxford Road, Reading RG30 1HF | 07932 610128</p>
+    <hr class="divider" />
+
+    <h2>Sunday Specials</h2>
+    <div class="item">
+      <span class="name">Tuo Zaafi with Soup (Sunday Only)</span
+      ><span class="prices">Small £10 | Medium £12 | Large £15</span>
+    </div>
+    <div class="tags"><span class="tag">Mild</span></div>
+    <div class="item">
+      <span class="name">Rice Balls with Peanut Soup (Sundays Only)</span
+      ><span class="prices">Small £10 | Medium £12 | Large £15</span>
+    </div>
+    <div class="tags">
+      <span class="tag">Mild</span> <span class="tag">Organic</span>
+    </div>
+    <div class="item">
+      <span class="name">Banku with Peanut Soup (Sundays Only)</span
+      ><span class="prices">Small £10 | Medium £12 | Large £15</span>
+    </div>
+
+    <h2>Main Meals</h2>
+    <div class="item">
+      <span class="name">Banku with Okro Soup (Monday to Friday)</span
+      ><span class="prices">Small £10 | Medium £12 | Large £15</span>
+    </div>
+    <div class="tags"><span class="tag">Mild</span></div>
+    <div class="item">
+      <span class="name">Fufu with Soup of the Day</span
+      ><span class="prices">Small £10 | Medium £12 | Large £15</span>
+    </div>
+    <div class="tags"><span class="tag">Mild</span></div>
+    <div class="item">
+      <span class="name">Kenkey with Fried Fish/Chofi</span
+      ><span class="prices">Small £10 | Medium £12 | Large £15</span>
+    </div>
+    <div class="tags"><span class="tag">Extra Hot</span></div>
+    <div class="item">
+      <span class="name">Banku with Fried Fish/Chofi</span
+      ><span class="prices">Small £10 | Medium £12 | Large £15</span>
+    </div>
+    <div class="tags"><span class="tag">Extra Hot</span></div>
+
+    <h2>Rice & Stews</h2>
+    <div class="item">
+      <span class="name">Waakye (Rice & Beans) with Sauce</span
+      ><span class="prices">Small £6 | Medium £8 | Large £12</span>
+    </div>
+    <div class="item">
+      <span class="name">Jollof Rice with Chicken/Turkey</span
+      ><span class="prices">Small £6 | Medium £8 | Large £12</span>
+    </div>
+    <div class="item">
+      <span class="name">White Rice with Stew or Soup</span
+      ><span class="prices">Small £6 | Medium £8 | Large £12</span>
+    </div>
+    <div class="tags"><span class="tag">Organic</span></div>
+    <div class="item">
+      <span class="name">Fried Rice with Chicken/Turkey</span
+      ><span class="prices">Small £6 | Medium £8 | Large £12</span>
+    </div>
+    <div class="item">
+      <span class="name">Fried Plantain with Beans Sauce</span
+      ><span class="prices">Small £10 | Medium £12 | Large £15</span>
+    </div>
+    <div class="tags">
+      <span class="tag">Vegetarian</span> <span class="tag">Mild</span>
+    </div>
+
+    <h2>Extras</h2>
+    <div class="item">
+      <span class="name">Fufu</span
+      ><span class="prices">Small £6 | Medium £8 | Large £10</span>
+    </div>
+    <div class="tags">
+      <span class="tag">Vegetarian</span> <span class="tag">Organic</span>
+      <span class="tag">Vegan</span>
+    </div>
+    <div class="item">
+      <span class="name">Banku</span
+      ><span class="prices">Medium £3 | Large £4</span>
+    </div>
+    <div class="tags">
+      <span class="tag">Vegetarian</span> <span class="tag">Organic</span>
+      <span class="tag">Vegan</span>
+    </div>
+    <div class="item">
+      <span class="name">Kenkey (Pair)</span><span class="prices">Pair £3</span>
+    </div>
+    <div class="tags">
+      <span class="tag">Vegetarian</span> <span class="tag">Organic</span>
+      <span class="tag">Vegan</span>
+    </div>
+    <div class="item">
+      <span class="name">Okra Stew</span
+      ><span class="prices">Small £6 | Medium £8 | Large £10</span>
+    </div>
+    <div class="tags">
+      <span class="tag">Hot</span> <span class="tag">Organic</span>
+    </div>
+    <div class="item">
+      <span class="name">Soup of the Day</span
+      ><span class="prices"
+        >Small £5 | Medium £8 | Large £10 | Extra Large £15</span
+      >
+    </div>
+    <div class="tags"><span class="tag">Mild</span></div>
+    <div class="item">
+      <span class="name">Chofi</span
+      ><span class="prices"
+        >Small £5 | Medium £8 | Large £10 | Extra Large £15</span
+      >
+    </div>
+
+    <h2>Meat & Fish</h2>
+    <div class="item">
+      <span class="name">Turkey (Chofi)</span
+      ><span class="prices"
+        >Small £5 | Medium £8 | Large £10 | Extra Large £15</span
+      >
+    </div>
+    <div class="item">
+      <span class="name">Fried Tilapia</span
+      ><span class="prices">Small £8 | Large £15</span>
+    </div>
+    <div class="item">
+      <span class="name">Fried Red Bream</span
+      ><span class="prices">Small £8 | Large £15</span>
+    </div>
+    <div class="item">
+      <span class="name">Fried Snapper</span
+      ><span class="prices">Small £8 | Large £15</span>
+    </div>
+
+    <h2>Drinks</h2>
+    <div class="item">
+      <span class="name">Big Can Drinks (A variety of drinks)</span
+      ><span class="prices">£2 per can</span>
+    </div>
+    <div class="item">
+      <span class="name">Bottled Drinks (A variety of bottled drinks)</span
+      ><span class="prices">£2 per bottle</span>
+    </div>
+
+    <div class="footer">
+      <p>Thank you for choosing Betty's Bistro!</p>
+      <p>Authentic Ghanaian cuisine in the heart of Reading.</p>
+    </div>
+  </body>
+</html>
